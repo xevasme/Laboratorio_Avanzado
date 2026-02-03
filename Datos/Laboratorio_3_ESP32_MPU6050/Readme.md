@@ -8,7 +8,6 @@ El sistema permite calcular los ángulos de orientación (roll y pitch) a partir
 - Código fuente en MicroPython y Arduino IDE.
 - Imágenes del montaje experimental.
 - Video del sistema en funcionamiento (servo + transmisión WiFi).
-- Documento del informe de laboratorio.
 
 Este repositorio sirve como respaldo del trabajo experimental y como evidencia del correcto funcionamiento del sistema desarrollado.
 
