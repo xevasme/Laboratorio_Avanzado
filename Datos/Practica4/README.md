@@ -4,13 +4,13 @@ Este proyecto consiste en un sistema de adquisición de datos climáticos y pres
 
 ---
 
-## 🚀 Características
+## Características
 - **Monitoreo Multisensorial:** Lectura de temperatura, humedad y presión.
 - **Base de Datos en Tiempo Real:** Integración con Firebase Realtime Database.
 - **Dashboard Web:** Visualización reactiva mediante Firebase Hosting.
 - **Seguridad:** Autenticación de usuario para el envío de datos.
 
-## 🛠️ Hardware Requerido
+## Hardware Requerido
 - **ESP32** (Modelo Doit DevKit V1 o similar).
 - **Sensor DHT11** (Temperatura y Humedad).
 - **Potenciómetro de 10kΩ** (Simulación de Presión).
@@ -28,7 +28,7 @@ Este proyecto consiste en un sistema de adquisición de datos climáticos y pres
 
 ---
 
-## 💻 Configuración del Software
+## Configuración del Software
 
 ### 1. Requisitos Previos
 - **Arduino IDE** con el soporte para placas ESP32 instalado.
