@@ -21,7 +21,7 @@ Este proyecto consiste en un sistema de adquisición de datos climáticos y pres
 |----------------|----------------|-----------|---------------|
 | Potenciómetro  | Centro (Señal) | GPIO 34   | ADC (Presión) |
 | Sensor DHT11   | Data (S)       | GPIO 14   | Digital I/O   |
-| Alimentación   | VCC / +        | 3.3V      | Energía       |
+| Alimentación   | VCC / +        | (3.3, 5.0)V      | Energía       |
 | Tierra         | GND / -        | GND       | Tierra        |
 
 
