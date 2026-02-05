@@ -1,49 +1,54 @@
-# Sistema de automatización y monitoreo remoto de variables físicas mediante ESP32 y servicios en la nube
+# Sistema de Monitoreo IoT en Tiempo Real: ESP32 + Firebase
 
-## Descripción general
-
-Este repositorio contiene los archivos correspondientes a un sistema de automatización experimental orientado a la adquisición, almacenamiento y visualización remota de variables físicas en tiempo real. El sistema integra un microcontrolador ESP32 con una plataforma de almacenamiento en la nube y una interfaz web, permitiendo el monitoreo continuo de datos experimentales sin intervención manual durante la toma de mediciones.
-
-El desarrollo de este proyecto se enmarca dentro del curso **Laboratorio Avanzado I**, cuyo objetivo principal es el uso de herramientas computacionales modernas para la automatización de experimentos físicos, la gestión de datos y el análisis remoto de fenómenos físicos.
+Este proyecto consiste en un sistema de adquisición de datos climáticos y presión (simulada) utilizando un microcontrolador **ESP32**, el sensor **DHT11** y la plataforma **Google Firebase**. Los datos se transmiten vía Wi-Fi y se visualizan en tiempo real a través de un Dashboard web.
 
 ---
 
-## Arquitectura del sistema
+## 🚀 Características
+- **Monitoreo Multisensorial:** Lectura de temperatura, humedad y presión.
+- **Base de Datos en Tiempo Real:** Integración con Firebase Realtime Database.
+- **Dashboard Web:** Visualización reactiva mediante Firebase Hosting.
+- **Seguridad:** Autenticación de usuario para el envío de datos.
 
-El sistema implementado se basa en una arquitectura IoT distribuida compuesta por tres bloques principales:
+## 🛠️ Hardware Requerido
+- **ESP32** (Modelo Doit DevKit V1 o similar).
+- **Sensor DHT11** (Temperatura y Humedad).
+- **Potenciómetro de 10kΩ** (Simulación de Presión).
+- **Protoboard y Jumpers**.
 
-1. **Sistema embebido (ESP32)**  
-   Encargado de la adquisición de la variable física mediante una entrada analógica y de la transmisión automática de los datos a la nube a través de una conexión WiFi.
+### Diagrama de Conexiones
+| Componente     | Pin Componente | Pin ESP32 | Función       |
+|----------------|----------------|-----------|---------------|
+| Potenciómetro  | Centro (Señal) | GPIO 34   | ADC (Presión) |
+| Sensor DHT11   | Data (S)       | GPIO 14   | Digital I/O   |
+| Alimentación   | VCC / +        | 3.3V      | Energía       |
+| Tierra         | GND / -        | GND       | Tierra        |
 
-2. **Plataforma en la nube (Firebase)**  
-   Utilizada para el almacenamiento de los datos experimentales en una base de datos en tiempo real y para el alojamiento de la interfaz web de visualización.
 
-3. **Interfaz web de monitoreo**  
-   Permite la visualización remota y en tiempo real de los datos adquiridos por el sistema embebido desde cualquier dispositivo con acceso a internet.
-
-Esta arquitectura permite automatizar el ciclo completo del experimento: medición, registro, almacenamiento y visualización de la variable física.
-
----
-
-## Descripción del sistema embebido
-
-El microcontrolador ESP32 realiza la lectura de una señal analógica a través del pin GPIO34. En el desarrollo experimental, esta señal es generada mediante un potenciómetro, el cual simula el comportamiento de un sensor de humedad u otra variable física analógica.
-
-El firmware implementado permite:
-- Conectarse a una red WiFi.
-- Autenticarse en la plataforma en la nube.
-- Leer periódicamente la señal analógica.
-- Enviar automáticamente los datos a una base de datos en tiempo real.
-
-Este proceso elimina la necesidad de intervención manual durante la adquisición de datos y permite el registro continuo de la variable física.
 
 ---
 
-## Interfaz web y visualización de datos
+## 💻 Configuración del Software
 
-La visualización de los datos se realiza mediante un sitio web alojado en la nube. La interfaz fue desarrollada a partir de una plantilla web editable, la cual fue adaptada para conectarse directamente con la base de datos en tiempo real.
+### 1. Requisitos Previos
+- **Arduino IDE** con el soporte para placas ESP32 instalado.
+- **Node.js** instalado (para el despliegue web).
+- Cuenta en **Google Firebase**.
 
-El uso de una base de datos en tiempo real permite que los valores mostrados en la interfaz se actualicen de forma casi instantánea cuando se produce un cambio en la variable física medida, facilitando el monitoreo remoto del experimento.
+### 2. Librerías de Arduino
+Es necesario instalar las siguientes librerías desde el Gestor de Bibliotecas:
+- `Firebase Arduino Client Library for ESP8266 and ESP32` (por Mobizt).
+- `DHT sensor library` (por Adafruit).
+
+### 3. Configuración del Proyecto (Firmware)
+En el archivo `firmware/main.ino`, debes reemplazar los siguientes marcadores de posición con tus credenciales:
+```cpp
+#define WIFI_SSID "TU_WIFI"
+#define WIFI_PASSWORD "TU_PASSWORD"
+#define API_KEY "TU_FIREBASE_API_KEY"
+#define USER_EMAIL "tu@email.com"
+#define USER_PASSWORD "tu_password"
+#define DATABASE_URL "tu-proyecto.firebaseio.com"
 
 
 
